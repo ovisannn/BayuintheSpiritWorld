@@ -1,0 +1,15 @@
+extends Control
+
+
+
+
+func _on_bayu_question_ui_on():
+	self.set_visible(true)
+
+
+func _on_bayu_question_ui_off():
+	self.set_visible(false)
+
+
+func _on_Area2D_body_exited(body):
+	self.set_visible(false)
