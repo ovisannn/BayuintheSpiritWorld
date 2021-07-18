@@ -7,6 +7,7 @@ export var attack = 0
 export var health = 0
 
 var right = true
+var action = false
 
 onready var ani = $AnimationPlayer
 
@@ -45,9 +46,17 @@ func animation(get_dir):
 		else:
 			ani.play("run_left")
 
+func interaction():
+	pass
+
+
 func _physics_process(_delta):
 	var direction = get_input()
 	animation(direction)
+	
+	if action == true : #TEST PUZZLE
+		interaction()   #TESTPUZZLE
+	
 	if direction.length() > 0:
 		velocity = lerp(velocity, direction.normalized() * speed, acceleration)
 	else:
