@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://bayu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://prefabs/bayu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scene/dungeon_1.tres" type="TileSet" id=2]
 [ext_resource path="res://Button.png" type="Texture" id=3]
 [ext_resource path="res://Test/Button.gd" type="Script" id=4]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Test/bayu(test).gd" type="Script" id=7]
 [ext_resource path="res://Test/Label.gd" type="Script" id=8]
 [ext_resource path="res://Test/Question UI.gd" type="Script" id=9]
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "Pressed"
