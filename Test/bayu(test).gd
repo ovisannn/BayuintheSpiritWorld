@@ -1,4 +1,4 @@
-extends "res://scene/bayu.gd"
+ extends "res://scene/bayu.gd"
 
 
 signal question_ui_on

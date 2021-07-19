@@ -48,7 +48,7 @@ func animation(get_dir):
 
 func interaction():
 	pass
-
+   
 
 func _physics_process(_delta):
 	var direction = get_input()

@@ -3,17 +3,13 @@
 [ext_resource path="res://asset/character/enemy/boss/boss.png" type="Texture" id=1]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 8.21021
-height = 16.1852
+height = 22.0
 
 [node name="butoIjo" type="KinematicBody2D"]
-position = Vector2( 103.294, 26.6432 )
-__meta__ = {
-"_edit_group_": true
-}
+position = Vector2( 0.510986, 0.113285 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -0.166855, -2.50282 )
+position = Vector2( -0.510986, -18.1133 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 hframes = 8
@@ -21,7 +17,7 @@ vframes = 3
 frame = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.0801239, 24.0596 )
+position = Vector2( -0.855116, 7.27623 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
