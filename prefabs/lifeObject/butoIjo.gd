@@ -22,7 +22,7 @@ func doingFunction():
 		
 func attackPhase():
 	if health > 700:
-		#stomp
+		ani.play("jump")
 		pass
 	if health < 700 and health > 300:
 		#stomp

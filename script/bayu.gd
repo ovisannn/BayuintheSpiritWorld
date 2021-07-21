@@ -44,7 +44,6 @@ func attack(get_dir):
 		
 		
 func animation(get_dir):
-	
 	if get_dir[0] == 0 and get_dir[1] == 0 and atk == false:
 		if right == true:
 			ani.play("idle_right")
