@@ -1,15 +1,130 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://script/bayu.gd" type="Script" id=1]
 [ext_resource path="res://asset/character/bayu/bayu.png" type="Texture" id=2]
 [ext_resource path="res://asset/character/shadow.png" type="Texture" id=3]
+[ext_resource path="res://asset/weapon/keris.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
+radius = 7.99999
+
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 3.08907
 height = 3.89773
 
-[sub_resource type="Animation" id=2]
-resource_name = "idle_left"
+[sub_resource type="Animation" id=9]
+resource_name = "atkBottom"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("weapon/Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("weapon/Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -106.7, -106.7, -190.9, -190.9 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "atkLeft"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("weapon/Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("weapon/Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -60.0, -13.2, -97.4, -60.0 ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "atkRight"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("weapon/Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("weapon/Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 61.6, 61.6, 155.1, 155.1 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "atkUp"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("weapon/Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("weapon/Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -13.2, -13.2, 70.9, 70.9 ]
+}
+
+[sub_resource type="Animation" id=4]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -25,7 +140,7 @@ tracks/0/keys = {
 "values": [ 25, 24, 23 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=5]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -41,7 +156,7 @@ tracks/0/keys = {
 "values": [ 18, 19, 20 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=6]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -57,8 +172,7 @@ tracks/0/keys = {
 "values": [ 15, 14, 13, 12, 11, 10 ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "run_right"
+[sub_resource type="Animation" id=7]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -84,6 +198,25 @@ script = ExtResource( 1 )
 [node name="shadow" type="Sprite" parent="."]
 texture = ExtResource( 3 )
 
+[node name="weapon" type="Node2D" parent="."]
+position = Vector2( 0, -2 )
+rotation = -0.523598
+
+[node name="Sprite" type="Sprite" parent="weapon"]
+visible = false
+position = Vector2( 0.0659304, -1.11663 )
+rotation = -3.33183
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+offset = Vector2( -3.8147e-06, -25.9976 )
+
+[node name="Area2D" type="Area2D" parent="weapon/Sprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="weapon/Sprite/Area2D"]
+position = Vector2( -4.57764e-05, -28.9976 )
+shape = SubResource( 1 )
+disabled = true
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0, -7 )
 scale = Vector2( 0.990748, 0.578163 )
@@ -94,15 +227,24 @@ position = Vector2( 0, -7 )
 texture = ExtResource( 2 )
 hframes = 9
 vframes = 3
-frame = 25
+frame = 23
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.156571, 1.96633 )
 rotation = 1.57012
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/idle_left = SubResource( 2 )
-anims/idle_right = SubResource( 3 )
-anims/run_left = SubResource( 4 )
-anims/run_right = SubResource( 5 )
+[node name="weapAnimation" type="AnimationPlayer" parent="."]
+anims/atkBottom = SubResource( 9 )
+anims/atkLeft = SubResource( 8 )
+anims/atkRight = SubResource( 10 )
+anims/atkUp = SubResource( 11 )
+
+[node name="bayuAnimation" type="AnimationPlayer" parent="."]
+anims/idle_left = SubResource( 4 )
+anims/idle_right = SubResource( 5 )
+anims/run_left = SubResource( 6 )
+anims/run_right = SubResource( 7 )
+
+[connection signal="animation_finished" from="weapAnimation" to="." method="_on_weapAnimation_animation_finished"]
+[connection signal="animation_started" from="weapAnimation" to="." method="_on_weapAnimation_animation_started"]
