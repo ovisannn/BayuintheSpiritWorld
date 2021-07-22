@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://script/bayu.gd" type="Script" id=1]
 [ext_resource path="res://asset/character/bayu/bayu.png" type="Texture" id=2]
@@ -12,7 +12,7 @@ radius = 7.99999
 radius = 3.08907
 height = 3.89773
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=3]
 resource_name = "atkBottom"
 length = 0.5
 tracks/0/type = "value"
@@ -40,7 +40,7 @@ tracks/1/keys = {
 "values": [ -106.7, -106.7, -190.9, -190.9 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=4]
 resource_name = "atkLeft"
 length = 0.5
 tracks/0/type = "value"
@@ -68,7 +68,7 @@ tracks/1/keys = {
 "values": [ -60.0, -13.2, -97.4, -60.0 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=5]
 resource_name = "atkRight"
 length = 0.5
 tracks/0/type = "value"
@@ -96,7 +96,7 @@ tracks/1/keys = {
 "values": [ 61.6, 61.6, 155.1, 155.1 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=6]
 resource_name = "atkUp"
 length = 0.5
 tracks/0/type = "value"
@@ -124,7 +124,7 @@ tracks/1/keys = {
 "values": [ -13.2, -13.2, 70.9, 70.9 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=7]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -140,7 +140,7 @@ tracks/0/keys = {
 "values": [ 25, 24, 23 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=8]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -156,7 +156,7 @@ tracks/0/keys = {
 "values": [ 18, 19, 20 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=9]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -172,7 +172,7 @@ tracks/0/keys = {
 "values": [ 15, 14, 13, 12, 11, 10 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=10]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -187,6 +187,10 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 2, 3, 4, 5, 6, 7 ]
 }
+
+[sub_resource type="CapsuleShape2D" id=11]
+radius = 7.0
+height = 6.0
 
 [node name="bayu" type="KinematicBody2D" groups=[
 "player",
@@ -235,16 +239,22 @@ rotation = 1.57012
 shape = SubResource( 2 )
 
 [node name="weapAnimation" type="AnimationPlayer" parent="."]
-anims/atkBottom = SubResource( 9 )
-anims/atkLeft = SubResource( 8 )
-anims/atkRight = SubResource( 10 )
-anims/atkUp = SubResource( 11 )
+anims/atkBottom = SubResource( 3 )
+anims/atkLeft = SubResource( 4 )
+anims/atkRight = SubResource( 5 )
+anims/atkUp = SubResource( 6 )
 
 [node name="bayuAnimation" type="AnimationPlayer" parent="."]
-anims/idle_left = SubResource( 4 )
-anims/idle_right = SubResource( 5 )
-anims/run_left = SubResource( 6 )
-anims/run_right = SubResource( 7 )
+anims/idle_left = SubResource( 7 )
+anims/idle_right = SubResource( 8 )
+anims/run_left = SubResource( 9 )
+anims/run_right = SubResource( 10 )
+
+[node name="demagedArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="demagedArea"]
+position = Vector2( 1, -5 )
+shape = SubResource( 11 )
 
 [connection signal="animation_finished" from="weapAnimation" to="." method="_on_weapAnimation_animation_finished"]
 [connection signal="animation_started" from="weapAnimation" to="." method="_on_weapAnimation_animation_started"]
