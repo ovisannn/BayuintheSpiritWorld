@@ -1,4 +1,5 @@
- extends "res://scene/bayu.gd"
+ extends "res://script/bayu.gd"
+
 
 
 signal question_ui_on
