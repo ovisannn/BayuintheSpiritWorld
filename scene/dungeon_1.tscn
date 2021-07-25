@@ -8,8 +8,7 @@
 [node name="dungeon_1" type="Node2D"]
 
 [node name="bayu" parent="." instance=ExtResource( 1 )]
-position = Vector2( 424, -6 )
-z_index = 2
+position = Vector2( 440.837, -27.3268 )
 
 [node name="dungeon structure" type="Node2D" parent="."]
 
@@ -30,3 +29,5 @@ tile_data = PoolIntArray( -524267, 10, 0, -524266, 10, 0, -524265, 10, 0, -52426
 
 [node name="door" parent="." instance=ExtResource( 4 )]
 position = Vector2( 456, -66 )
+
+[connection signal="paused_state" from="bayu" to="." method="_on_bayu_paused_state"]

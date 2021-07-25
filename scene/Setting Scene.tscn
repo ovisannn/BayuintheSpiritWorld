@@ -1,0 +1,105 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://script/Setting.gd" type="Script" id=1]
+[ext_resource path="res://script/confirmation.gd" type="Script" id=2]
+[ext_resource path="res://scene/Button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://asset/UI Asset/FontPixel.tres" type="DynamicFont" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.462745, 0.101961, 0.188235, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.666667, 0.137255, 0.266667, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=3]
+content_margin_left = 4.0
+content_margin_right = 4.0
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+bg_color = Color( 0.462745, 0.101961, 0.188235, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+anti_aliasing = false
+
+[node name="Setting Scene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 0.280617
+margin_bottom = 0.280609
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fullscreen" type="CheckBox" parent="."]
+anchor_left = 0.0956847
+anchor_top = 0.165832
+anchor_right = 0.19207
+anchor_bottom = 0.34361
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Fullscreen"]
+anchor_left = 0.267029
+anchor_top = 0.293275
+anchor_right = 0.53209
+anchor_bottom = 0.396979
+margin_left = 17.5061
+margin_top = 0.916182
+margin_right = 77.1447
+margin_bottom = 12.4273
+custom_fonts/font = ExtResource( 4 )
+text = "Fullscreen"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Conf_button" parent="." instance=ExtResource( 3 )]
+anchor_left = 0.121776
+anchor_top = 0.738031
+anchor_right = 0.42592
+anchor_bottom = 0.900994
+margin_right = -17.732
+margin_bottom = -4.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 1 )
+custom_styles/normal = SubResource( 3 )
+custom_fonts/font = ExtResource( 4 )
+text = "Confirm"
+script = ExtResource( 2 )
+
+[node name="Button" parent="." instance=ExtResource( 3 )]
+anchor_left = 0.41028
+anchor_top = 0.738031
+anchor_right = 0.571999
+anchor_bottom = 0.871365
+custom_fonts/font = ExtResource( 4 )
+text = "back"
+reference_path = "res://scene/Menu  Interface.tscn"
+
+[connection signal="pressed" from="Fullscreen" to="." method="_on_Fullscreen_pressed"]
+[connection signal="pressed" from="Conf_button" to="." method="_on_Conf_button_pressed"]

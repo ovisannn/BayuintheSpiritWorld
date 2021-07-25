@@ -9,6 +9,7 @@ export var health = 0
 var right = true
 var action = false
 var atk = false
+signal paused_state
 
 onready var ani = $bayuAnimation
 onready var weapAni = $weapAnimation
@@ -83,6 +84,9 @@ func _physics_process(_delta):
 	
 	if action == true : #TEST PUZZLE
 		interaction()   #TESTPUZZLE
+	
+	if Input.is_action_just_pressed("pause"):
+		emit_signal("paused_state")
 
 
 func _on_weapAnimation_animation_finished(anim_name):

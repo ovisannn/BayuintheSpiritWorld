@@ -1,0 +1,90 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scene/Button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://asset/UI Asset/FontPixel.tres" type="DynamicFont" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.462745, 0.101961, 0.188235, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+anti_aliasing = false
+
+[node name="Menu  Interface" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.314987
+margin_top = 0.31498
+margin_right = -0.314987
+margin_bottom = 0.314972
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -27.0
+margin_top = -55.0
+margin_right = 27.0
+margin_bottom = 23.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_right = 54.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" parent="MarginContainer/VBoxContainer" instance=ExtResource( 1 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 54.0
+margin_bottom = 11.0
+focus_neighbour_top = NodePath("../Button3")
+focus_neighbour_bottom = NodePath("../Button2")
+custom_styles/hover = SubResource( 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "Start"
+reference_path = "res://scene/dungeon_1.tscn"
+start_focused = true
+
+[node name="Settings" parent="MarginContainer/VBoxContainer" instance=ExtResource( 1 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 15.0
+margin_right = 54.0
+margin_bottom = 26.0
+focus_neighbour_top = NodePath("../Button")
+focus_neighbour_bottom = NodePath("../Button3")
+custom_fonts/font = ExtResource( 2 )
+text = "Settings"
+reference_path = "res://scene/Setting Scene.tscn"
+
+[node name="Exit" parent="MarginContainer/VBoxContainer" instance=ExtResource( 1 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 30.0
+margin_right = 54.0
+margin_bottom = 41.0
+focus_neighbour_top = NodePath("../Button2")
+focus_neighbour_bottom = NodePath("../Button")
+custom_fonts/font = ExtResource( 2 )
+text = "Exit"
