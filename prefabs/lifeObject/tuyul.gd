@@ -5,6 +5,7 @@ onready var ani = $AnimatedSprite
 onready var obj = get_parent().get_node("bayu")
 onready var timer = get_node("Timer")
 onready var playerDetect = $playerDetector/CollisionShape2D
+onready var bloodFX = $blood
 
 var knockback = Vector2.ZERO
 
@@ -58,6 +59,7 @@ func _on_playerDetector_body_entered(body):
 
 func _on_hurtBox_area_shape_entered(area_id, area, area_shape, local_shape):
 	if area.name == 'keris':
+		bloodFX.emitting = true
 		health-=30
 		if kanan == true:
 			knockback = Vector2.LEFT*200
