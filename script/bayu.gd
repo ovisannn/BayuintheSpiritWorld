@@ -14,7 +14,7 @@ var not_move = false
 
 onready var ani = $bayuAnimation
 onready var weapAni = $weapAnimation
-onready var weapCol = $weapon/Sprite/Area2D/CollisionShape2D
+onready var weapCol = $weapon/Sprite/keris/CollisionShape2D
 
 var velocity = Vector2()
 

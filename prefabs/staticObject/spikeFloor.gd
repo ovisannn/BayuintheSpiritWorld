@@ -16,7 +16,6 @@ func deactivate():
 	ani.play('SpikeOffAni')
 
 func _process(_delta):
-	print(spikeActive)
 	if spikeActive == false:
 		activate()
 	elif spikeActive == true:

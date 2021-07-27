@@ -215,9 +215,9 @@ scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 4 )
 offset = Vector2( -3.8147e-06, -25.9976 )
 
-[node name="Area2D" type="Area2D" parent="weapon/Sprite"]
+[node name="keris" type="Area2D" parent="weapon/Sprite"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="weapon/Sprite/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="weapon/Sprite/keris"]
 position = Vector2( -4.57764e-05, -28.9976 )
 shape = SubResource( 1 )
 disabled = true

@@ -2,7 +2,7 @@ extends Node2D
 
 onready var doorColl = $StaticBody2D/door
 onready var doorTexture = $doorTexture
-
+onready var lightOc = $LightOccluder2D
 
 const doorOpen = preload("res://asset/dungeon/door open.png")
 const doorClosed = preload("res://asset/dungeon/door closed.png")
@@ -12,10 +12,12 @@ export var bukaPintu = true
 func openDoor():
 	doorTexture.texture = doorOpen
 	doorColl.disabled = true
+	lightOc.visible = false
 	
 func closeDoor():
 	doorTexture.texture = doorClosed
 	doorColl.disabled = false
+	lightOc.visible = true
 
 func _init():
 	pass
