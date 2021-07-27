@@ -101,3 +101,9 @@ func _on_weapAnimation_animation_finished(anim_name):
 func _on_weapAnimation_animation_started(anim_name):
 	if anim_name == 'atkLeft' or anim_name == 'atkRight' or anim_name == 'atkBottom' or anim_name == 'atkUp':
 		weapCol.disabled = false
+
+
+func _on_hitBox_area_shape_entered(area_id, area, area_shape, local_shape):
+	if area.is_in_group('enemy'):
+		#knockback
+		pass

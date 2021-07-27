@@ -61,6 +61,8 @@ height = 4.0
 [node name="tuyul" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
+[node name="Timer" type="Timer" parent="."]
+
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 9 )
 animation = "run"
@@ -78,7 +80,9 @@ shape = SubResource( 10 )
 position = Vector2( 0, 9 )
 shape = SubResource( 11 )
 
-[node name="hurtBox" type="Area2D" parent="."]
+[node name="hurtBox" type="Area2D" parent="." groups=[
+"enemy",
+]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtBox"]
 position = Vector2( 0, 9 )
@@ -86,3 +90,4 @@ shape = SubResource( 12 )
 
 [connection signal="body_entered" from="playerDetector" to="." method="_on_playerDetector_body_entered"]
 [connection signal="area_shape_entered" from="hurtBox" to="." method="_on_hurtBox_area_shape_entered"]
+[connection signal="body_entered" from="hurtBox" to="." method="_on_hurtBox_body_entered"]

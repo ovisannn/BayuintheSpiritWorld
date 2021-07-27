@@ -85,7 +85,7 @@ position = Vector2( 81, -52 )
 z_index = 1
 
 [node name="bayu" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( -76, 1 )
+position = Vector2( -24, -1 )
 script = ExtResource( 12 )
 
 [node name="Screen" parent="YSort/bayu" instance=ExtResource( 8 )]
@@ -187,7 +187,7 @@ position = Vector2( 241, -101 )
 z_index = 1
 
 [node name="tuyul" parent="YSort" instance=ExtResource( 21 )]
-position = Vector2( -247, -27 )
+position = Vector2( -127, -18 )
 z_index = 1
 
 [node name="dungeon structure" type="Node2D" parent="."]
@@ -259,10 +259,10 @@ position = Vector2( 656, 128 )
 [connection signal="question_ui_on" from="YSort/bayu" to="YSort/bayu/Screen" method="_on_bayu_question_ui_on"]
 [connection signal="pressed" from="YSort/bayu/Screen/Panel/Button" to="YSort/bayu" method="_on_Button_pressed"]
 [connection signal="pressed" from="YSort/bayu/Screen/Panel/Button" to="YSort/bayu/Screen" method="_on_Button_pressed"]
-[connection signal="body_entered" from="YSort/Puzzle 01/StoneMonument(quiz)/interact_area" to="YSort/Puzzle 01/StoneMonument(quiz)/interact label" method="_on_interact_area_body_entered"]
 [connection signal="body_entered" from="YSort/Puzzle 01/StoneMonument(quiz)/interact_area" to="YSort/bayu" method="_on_interact_area_body_entered"]
-[connection signal="body_exited" from="YSort/Puzzle 01/StoneMonument(quiz)/interact_area" to="YSort/Puzzle 01/StoneMonument(quiz)/interact label" method="_on_interact_area_body_exited"]
+[connection signal="body_entered" from="YSort/Puzzle 01/StoneMonument(quiz)/interact_area" to="YSort/Puzzle 01/StoneMonument(quiz)/interact label" method="_on_interact_area_body_entered"]
 [connection signal="body_exited" from="YSort/Puzzle 01/StoneMonument(quiz)/interact_area" to="YSort/bayu" method="_on_interact_area_body_exited"]
+[connection signal="body_exited" from="YSort/Puzzle 01/StoneMonument(quiz)/interact_area" to="YSort/Puzzle 01/StoneMonument(quiz)/interact label" method="_on_interact_area_body_exited"]
 [connection signal="body_exited" from="YSort/Puzzle 01/StoneMonument(quiz)/interact_area" to="YSort/bayu/Screen" method="_on_interact_area_body_exited"]
 [connection signal="door_open" from="YSort/Puzzle 01/Majapahit/Platform(A)" to="YSort/door" method="_on_PlatformA_door_open"]
 
