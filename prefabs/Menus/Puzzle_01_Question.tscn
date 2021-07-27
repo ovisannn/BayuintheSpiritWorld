@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://asset/UI Asset/panel(square).png" type="Texture" id=1]
+[ext_resource path="res://scene/Button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://asset/UI Asset/FontPixel.tres" type="DynamicFont" id=3]
+[ext_resource path="res://asset/UI Asset/PUZZ01.jpg" type="Texture" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0.737255 )
+
+[node name="Puzzle 01" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -70.7223
+margin_top = -74.1487
+margin_right = 77.2777
+margin_bottom = 73.8513
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Question" type="RichTextLabel" parent="Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -51.4189
+margin_top = 19.0
+margin_right = 61.5811
+margin_bottom = 45.0
+custom_fonts/normal_font = ExtResource( 3 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "Ingkang punika , kerajaan ing indonesia miturut kejaayaan yaiku :"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="puzz" type="TextureRect" parent="Panel"]
+margin_left = 66.7627
+margin_top = 50.3746
+margin_right = 188.763
+margin_bottom = 90.3746
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" parent="Panel" instance=ExtResource( 2 )]
+anchor_left = 0.447246
+anchor_top = 0.715914
+anchor_right = 0.608964
+anchor_bottom = 0.849248
+custom_fonts/font = ExtResource( 3 )
+text = "Back"
+script = null

@@ -1,14 +1,40 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://prefabs/lifeObject/bayu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scene/floor.tres" type="TileSet" id=2]
 [ext_resource path="res://scene/wall.tres" type="TileSet" id=3]
 [ext_resource path="res://prefabs/dungeon/Door.tscn" type="PackedScene" id=4]
+[ext_resource path="res://prefabs/Puzzle Object/Press_platform.tscn" type="PackedScene" id=5]
+[ext_resource path="res://icon.png" type="Texture" id=6]
+[ext_resource path="res://scene/Puzzle 01.gd" type="Script" id=7]
+[ext_resource path="res://prefabs/Menus/Puzzle_01_Question.tscn" type="PackedScene" id=8]
+[ext_resource path="res://asset/UI Asset/FontPixel.tres" type="DynamicFont" id=9]
+[ext_resource path="res://prefabs/Puzzle Object/RMB.tscn" type="PackedScene" id=10]
+[ext_resource path="res://script/puzzle/interact label.gd" type="Script" id=11]
+[ext_resource path="res://Test/bayu(test).gd" type="Script" id=12]
+[ext_resource path="res://prefabs/Menus/Puzzle_01_Question.gd" type="Script" id=13]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 41.0453, 35.2324 )
 
 [node name="dungeon_1" type="Node2D"]
 
 [node name="bayu" parent="." instance=ExtResource( 1 )]
-position = Vector2( 440.837, -27.3268 )
+position = Vector2( 454.646, 89.8264 )
+z_index = 2
+script = ExtResource( 12 )
+
+[node name="Screen" parent="bayu" instance=ExtResource( 8 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -124.5
+margin_top = -73.5
+margin_right = 124.5
+margin_bottom = 61.5
+script = ExtResource( 13 )
 
 [node name="dungeon structure" type="Node2D" parent="."]
 
@@ -30,4 +56,96 @@ tile_data = PoolIntArray( -524267, 10, 0, -524266, 10, 0, -524265, 10, 0, -52426
 [node name="door" parent="." instance=ExtResource( 4 )]
 position = Vector2( 456, -66 )
 
+[node name="Puzzle 01" type="Node2D" parent="."]
+script = ExtResource( 7 )
+
+[node name="StoneMonument(quiz)" type="Sprite" parent="Puzzle 01"]
+position = Vector2( 456.197, 44.2839 )
+scale = Vector2( 0.380209, 0.556732 )
+texture = ExtResource( 6 )
+
+[node name="interact_area" type="Area2D" parent="Puzzle 01/StoneMonument(quiz)"]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puzzle 01/StoneMonument(quiz)/interact_area"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -1.31506, 10.7772 )
+scale = Vector2( 0.996601, 1.01499 )
+shape = SubResource( 1 )
+
+[node name="interact label" type="Label" parent="Puzzle 01/StoneMonument(quiz)"]
+visible = false
+anchor_left = 0.495
+anchor_top = 0.153
+anchor_right = 0.495
+anchor_bottom = 0.153
+margin_left = -70.5006
+margin_top = -46.3526
+margin_right = 20.4994
+margin_bottom = -32.3526
+custom_fonts/font = ExtResource( 9 )
+text = "press             to interact    "
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="RMB" parent="Puzzle 01/StoneMonument(quiz)/interact label" instance=ExtResource( 10 )]
+margin_left = 22.5106
+margin_top = -3.93384
+margin_right = 41.5106
+margin_bottom = 11.0662
+
+[node name="Nama" parent="Puzzle 01/StoneMonument(quiz)/interact label/RMB" index="1"]
+text = ""
+
+[node name="Majapahit" type="Node2D" parent="Puzzle 01"]
+position = Vector2( 392, 8 )
+
+[node name="Platform(A)" parent="Puzzle 01/Majapahit" instance=ExtResource( 5 )]
+position = Vector2( 0.336914, -0.551544 )
+answer = "Majapahit"
+
+[node name="Patung A" type="Sprite" parent="Puzzle 01/Majapahit"]
+position = Vector2( -0.650421, -31.3902 )
+scale = Vector2( 0.380209, 0.556732 )
+texture = ExtResource( 6 )
+
+[node name="Sriwijaya" type="Node2D" parent="Puzzle 01"]
+position = Vector2( 455, 7 )
+
+[node name="Platform(A)" parent="Puzzle 01/Sriwijaya" instance=ExtResource( 5 )]
+position = Vector2( 0.336914, -0.551544 )
+answer = "Sriwijaya"
+
+[node name="Patung A" type="Sprite" parent="Puzzle 01/Sriwijaya"]
+position = Vector2( -0.650421, -31.3902 )
+scale = Vector2( 0.380209, 0.556732 )
+texture = ExtResource( 6 )
+
+[node name="Singosari" type="Node2D" parent="Puzzle 01"]
+position = Vector2( 518, 8 )
+
+[node name="Platform(A)" parent="Puzzle 01/Singosari" instance=ExtResource( 5 )]
+position = Vector2( 0.336914, -0.551544 )
+answer = "Singosari"
+
+[node name="Patung A" type="Sprite" parent="Puzzle 01/Singosari"]
+position = Vector2( -0.650421, -31.3902 )
+scale = Vector2( 0.380209, 0.556732 )
+texture = ExtResource( 6 )
+
 [connection signal="paused_state" from="bayu" to="." method="_on_bayu_paused_state"]
+[connection signal="question_ui_off" from="bayu" to="bayu/Screen" method="_on_bayu_question_ui_off"]
+[connection signal="question_ui_on" from="bayu" to="bayu/Screen" method="_on_bayu_question_ui_on"]
+[connection signal="pressed" from="bayu/Screen/Panel/Button" to="bayu/Screen" method="_on_Button_pressed"]
+[connection signal="body_entered" from="Puzzle 01/StoneMonument(quiz)/interact_area" to="bayu" method="_on_interact_area_body_entered"]
+[connection signal="body_entered" from="Puzzle 01/StoneMonument(quiz)/interact_area" to="Puzzle 01/StoneMonument(quiz)/interact label" method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="Puzzle 01/StoneMonument(quiz)/interact_area" to="bayu" method="_on_interact_area_body_exited"]
+[connection signal="body_exited" from="Puzzle 01/StoneMonument(quiz)/interact_area" to="bayu/Screen" method="_on_interact_area_body_exited"]
+[connection signal="body_exited" from="Puzzle 01/StoneMonument(quiz)/interact_area" to="Puzzle 01/StoneMonument(quiz)/interact label" method="_on_interact_area_body_exited"]
+[connection signal="door_open" from="Puzzle 01/Majapahit/Platform(A)" to="door" method="_on_PlatformA_door_open"]
+
+[editable path="bayu/Screen"]
+[editable path="Puzzle 01/StoneMonument(quiz)/interact label/RMB"]

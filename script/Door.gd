@@ -28,3 +28,7 @@ func _process(_delta):
 
 func _on_interactionArea_body_entered(body):
 	pass
+
+
+func _on_PlatformA_door_open():
+	bukaPintu = true

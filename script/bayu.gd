@@ -75,6 +75,7 @@ func _physics_process(_delta):
 	animation(direction)
 	attack(direction)
 	
+	
 	if direction.length() > 0:
 		velocity = lerp(velocity, direction.normalized() * speed, acceleration)
 	else:
@@ -84,6 +85,7 @@ func _physics_process(_delta):
 	
 	if action == true : #TEST PUZZLE
 		interaction()   #TESTPUZZLE
+		
 	
 	if Input.is_action_just_pressed("pause"):
 		emit_signal("paused_state")

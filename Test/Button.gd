@@ -1,14 +1,16 @@
 extends Node2D
 
 
-onready var Jawaban = get_node("../Portal").Answer
-onready var Kunci = ["red","blue","red"]
+onready var Jawaban = get_node("../../../Puzzle 01").Answer
+onready var Kunci = ["Sriwijaya","Singosari","Majapahit"]
 onready var Anim = $Button
+
+export (String) var answer 
 
 signal door_open
 
 func mechanic():
-	Jawaban.append("red")
+	Jawaban.append(answer)
 	print(Jawaban)
 	requirement()
 	

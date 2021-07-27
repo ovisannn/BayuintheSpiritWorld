@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://asset/UI Asset/FontPixel.tres" type="DynamicFont" id=1]
+
+[node name="RMB" type="ColorRect"]
+margin_top = 19.0
+margin_right = 15.0
+margin_bottom = 34.0
+rect_min_size = Vector2( 15, 15 )
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -7.0
+margin_top = -6.5
+margin_right = 7.0
+margin_bottom = 6.5
+custom_fonts/font = ExtResource( 1 )
+text = "rmb"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nama" type="Label" parent="."]
+margin_left = 21.0215
+margin_top = 3.33711
+margin_right = 61.0215
+margin_bottom = 17.3371
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Interaksi"
+__meta__ = {
+"_edit_use_anchors_": false
+}

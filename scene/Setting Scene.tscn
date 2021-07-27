@@ -1,25 +1,20 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://script/Setting.gd" type="Script" id=1]
 [ext_resource path="res://script/confirmation.gd" type="Script" id=2]
 [ext_resource path="res://scene/Button.tscn" type="PackedScene" id=3]
 [ext_resource path="res://asset/UI Asset/FontPixel.tres" type="DynamicFont" id=4]
+[ext_resource path="res://asset/UI Asset/panel(square).png" type="Texture" id=5]
+[ext_resource path="res://asset/UI Asset/MinimalPixel v2.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://prefabs/Puzzle Object/RMB.tscn" type="PackedScene" id=7]
 
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.462745, 0.101961, 0.188235, 1 )
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_blend = true
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-anti_aliasing = false
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 5 )
+region_rect = Rect2( 28.5867, 40.0122, 395.349, 371.225 )
+margin_right = 2.31038
 
 [sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.666667, 0.137255, 0.266667, 1 )
+bg_color = Color( 0.462745, 0.101961, 0.188235, 1 )
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -32,6 +27,19 @@ corner_radius_bottom_left = 20
 anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.666667, 0.137255, 0.266667, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=4]
 content_margin_left = 4.0
 content_margin_right = 4.0
 content_margin_top = 2.0
@@ -43,6 +51,14 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 anti_aliasing = false
 
+[sub_resource type="DynamicFont" id=5]
+size = 7
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 7
+font_data = ExtResource( 6 )
+
 [node name="Setting Scene" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -53,11 +69,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Fullscreen" type="CheckBox" parent="."]
 anchor_left = 0.0956847
 anchor_top = 0.165832
 anchor_right = 0.19207
 anchor_bottom = 0.34361
+margin_left = -8.49291
+margin_top = -0.0637779
+margin_right = -8.49285
+margin_bottom = -0.0638046
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -72,34 +100,330 @@ margin_top = 0.916182
 margin_right = 77.1447
 margin_bottom = 12.4273
 custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Fullscreen"
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="Conf_button" parent="." instance=ExtResource( 3 )]
-anchor_left = 0.121776
-anchor_top = 0.738031
-anchor_right = 0.42592
-anchor_bottom = 0.900994
-margin_right = -17.732
-margin_bottom = -4.0
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 2 )
-custom_styles/focus = SubResource( 1 )
-custom_styles/normal = SubResource( 3 )
+anchor_left = 0.0696133
+anchor_top = 0.82963
+anchor_right = 0.25
+anchor_bottom = 0.911
+margin_right = 0.0837097
+margin_bottom = 0.015007
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 2 )
+custom_styles/normal = SubResource( 4 )
 custom_fonts/font = ExtResource( 4 )
 text = "Confirm"
 script = ExtResource( 2 )
 
 [node name="Button" parent="." instance=ExtResource( 3 )]
-anchor_left = 0.41028
-anchor_top = 0.738031
-anchor_right = 0.571999
-anchor_bottom = 0.871365
+anchor_left = 0.271689
+anchor_top = 0.832169
+anchor_right = 0.432331
+anchor_bottom = 0.91365
 custom_fonts/font = ExtResource( 4 )
 text = "back"
 reference_path = "res://scene/Menu  Interface.tscn"
+
+[node name="Kiri" type="MarginContainer" parent="."]
+anchor_left = 0.832
+anchor_top = 0.179
+anchor_right = 0.832
+anchor_bottom = 0.179
+margin_left = -71.8892
+margin_top = 5.58414
+margin_right = -56.8892
+margin_bottom = 105.584
+rect_min_size = Vector2( 15, 15 )
+custom_constants/margin_bottom = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Kiri"]
+margin_right = 15.0
+margin_bottom = 95.0
+
+[node name="ColorRect" type="ColorRect" parent="Kiri/VBoxContainer"]
+margin_right = 15.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 15, 15 )
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Kiri/VBoxContainer/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -7.0
+margin_top = -6.5
+margin_right = 7.0
+margin_bottom = 6.5
+custom_fonts/font = ExtResource( 4 )
+text = "W"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nama" type="Label" parent="Kiri/VBoxContainer/ColorRect"]
+margin_left = 21.0215
+margin_top = 3.33711
+margin_right = 61.0215
+margin_bottom = 17.3371
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Atas"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="Kiri/VBoxContainer"]
+margin_top = 19.0
+margin_right = 15.0
+margin_bottom = 34.0
+rect_min_size = Vector2( 15, 15 )
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Kiri/VBoxContainer/ColorRect2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -7.0
+margin_top = -6.5
+margin_right = 7.0
+margin_bottom = 6.5
+custom_fonts/font = ExtResource( 4 )
+text = "A"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nama" type="Label" parent="Kiri/VBoxContainer/ColorRect2"]
+margin_left = 21.0215
+margin_top = 3.33711
+margin_right = 61.0215
+margin_bottom = 17.3371
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Kiri"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect3" type="ColorRect" parent="Kiri/VBoxContainer"]
+margin_top = 38.0
+margin_right = 15.0
+margin_bottom = 53.0
+rect_min_size = Vector2( 15, 15 )
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Kiri/VBoxContainer/ColorRect3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -7.0
+margin_top = -6.5
+margin_right = 7.0
+margin_bottom = 6.5
+custom_fonts/font = ExtResource( 4 )
+text = "S"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nama" type="Label" parent="Kiri/VBoxContainer/ColorRect3"]
+margin_left = 21.0215
+margin_top = 3.33711
+margin_right = 61.0215
+margin_bottom = 17.3371
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Bawah"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect4" type="ColorRect" parent="Kiri/VBoxContainer"]
+margin_top = 57.0
+margin_right = 15.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 15, 15 )
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Kiri/VBoxContainer/ColorRect4"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -7.0
+margin_top = -6.5
+margin_right = 7.0
+margin_bottom = 6.5
+custom_fonts/font = ExtResource( 4 )
+text = "D"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nama" type="Label" parent="Kiri/VBoxContainer/ColorRect4"]
+margin_left = 21.0215
+margin_top = 3.33711
+margin_right = 61.0215
+margin_bottom = 17.3371
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Kanan"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KAnan" type="MarginContainer" parent="."]
+anchor_left = 0.832
+anchor_top = 0.179
+anchor_right = 0.832
+anchor_bottom = 0.179
+margin_left = -16.3301
+margin_top = 4.79044
+margin_right = -1.33014
+margin_bottom = 104.79
+rect_min_size = Vector2( 15, 15 )
+custom_constants/margin_bottom = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="KAnan"]
+margin_right = 15.0
+margin_bottom = 95.0
+
+[node name="LMB" type="ColorRect" parent="KAnan/VBoxContainer"]
+margin_right = 15.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 15, 15 )
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="KAnan/VBoxContainer/LMB"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -7.39685
+margin_top = -7.2937
+margin_right = 9.60315
+margin_bottom = 5.7063
+custom_fonts/font = SubResource( 5 )
+text = "lmb"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nama" type="Label" parent="KAnan/VBoxContainer/LMB"]
+margin_left = 21.0215
+margin_top = 3.33711
+margin_right = 61.0215
+margin_bottom = 17.3371
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Serang"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RMB" parent="KAnan/VBoxContainer" instance=ExtResource( 7 )]
+
+[node name="ColorRect3" type="ColorRect" parent="KAnan/VBoxContainer"]
+margin_top = 38.0
+margin_right = 15.0
+margin_bottom = 53.0
+rect_min_size = Vector2( 15, 15 )
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="KAnan/VBoxContainer/ColorRect3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -7.0
+margin_top = -6.5
+margin_right = 7.0
+margin_bottom = 6.5
+custom_fonts/font = ExtResource( 4 )
+text = "esc"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nama" type="Label" parent="KAnan/VBoxContainer/ColorRect3"]
+margin_left = 21.0215
+margin_top = 3.33711
+margin_right = 61.0215
+margin_bottom = 17.3371
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Game Setting" type="Label" parent="."]
+margin_left = 39.1017
+margin_top = 14.193
+margin_right = 85.1017
+margin_bottom = 28.193
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Game Setting"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Controller" type="Label" parent="."]
+margin_left = 166.262
+margin_top = 13.7725
+margin_right = 212.262
+margin_bottom = 27.7725
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Controller"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="pressed" from="Fullscreen" to="." method="_on_Fullscreen_pressed"]
 [connection signal="pressed" from="Conf_button" to="." method="_on_Conf_button_pressed"]

@@ -1,24 +1,26 @@
 extends Control
 
-var is_fullscreen = false
+var is_fullscreen 
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	if OS.is_window_fullscreen() == true :
+		is_fullscreen = true
+#		print("bisa")
+		$Fullscreen.set_pressed(is_fullscreen)
+	else :
+		is_fullscreen = false
+		$Fullscreen.set_pressed(is_fullscreen)
+	
 
 
 func _on_Fullscreen_pressed():
 	if is_fullscreen == false :
 		is_fullscreen = true
-		print("full")
+#		print("full")
 	elif is_fullscreen == true :
 		is_fullscreen = false
-		print("not full")
+#		print("not full")
 
 
 
