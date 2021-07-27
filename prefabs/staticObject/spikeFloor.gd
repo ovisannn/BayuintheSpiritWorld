@@ -3,12 +3,28 @@ extends Node2D
 onready var ani = $AnimatedSprite
 onready var coll = $Area2D/CollisionShape2D
 
+export var spikeActive = true
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func activate():
+	spikeActive = true
+	coll.disabled = false
+	ani.play('spikeOnAni')
+
+func deactivate():
+	spikeActive = true
+	coll.disabled = false
+	ani.play('SpikeOffAni')
+
+func _process(_delta):
+	print(spikeActive)
+	if spikeActive == false:
+		activate()
+	elif spikeActive == true:
+		deactivate()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _on_AnimatedSprite_animation_finished():
+	if ani.name == 'spikeOnAni':
+		ani.play('on')
+	if ani.name == 'SpikeOffAni':
+		ani.play('off')

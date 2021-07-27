@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pawn2.png-89a229b1718b5966d35338f06aa96d65.stex"
+path="res://.import/tugu.png-cec93ada02769054bdfeb0c1c1d1e1aa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/character/enemy/pawn/pawn2.png"
-dest_files=[ "res://.import/pawn2.png-89a229b1718b5966d35338f06aa96d65.stex" ]
+source_file="res://asset/dungeon/tugu.png"
+dest_files=[ "res://.import/tugu.png-cec93ada02769054bdfeb0c1c1d1e1aa.stex" ]
 
 [params]
 
