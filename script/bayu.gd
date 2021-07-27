@@ -7,9 +7,10 @@ export var attack = 0
 export var health = 0
 
 var right = true
-var action = false
+var interact = false
 var atk = false
 signal paused_state
+var not_move = false
 
 onready var ani = $bayuAnimation
 onready var weapAni = $weapAnimation
@@ -19,14 +20,15 @@ var velocity = Vector2()
 
 func get_input():
 	var input = Vector2()
-	if Input.is_action_pressed('ui_right'):
-		input.x += 1
-	if Input.is_action_pressed('ui_left'):
-		input.x -= 1
-	if Input.is_action_pressed('ui_down'):
-		input.y += 1
-	if Input.is_action_pressed('ui_up'):
-		input.y -= 1
+	if not_move == false :
+		if Input.is_action_pressed('ui_right'):
+			input.x += 1
+		if Input.is_action_pressed('ui_left'):
+			input.x -= 1
+		if Input.is_action_pressed('ui_down'):
+			input.y += 1
+		if Input.is_action_pressed('ui_up'):
+			input.y -= 1
 
 	return input
 
@@ -71,19 +73,19 @@ func interaction():
 func _physics_process(_delta):
 
 	var direction = get_input()
+	if not_move == false :
+		animation(direction)
+		attack(direction)
 	
-	animation(direction)
-	attack(direction)
 	
+		if direction.length() > 0:
+			velocity = lerp(velocity, direction.normalized() * speed, acceleration)
+		else:
+			velocity = lerp(velocity, Vector2.ZERO, friction)
+		velocity = move_and_slide(velocity)
+			
 	
-	if direction.length() > 0:
-		velocity = lerp(velocity, direction.normalized() * speed, acceleration)
-	else:
-		velocity = lerp(velocity, Vector2.ZERO, friction)
-	velocity = move_and_slide(velocity)
-		
-	
-	if action == true : #TEST PUZZLE
+	if interact == true : #TEST PUZZLE
 		interaction()   #TESTPUZZLE
 		
 	

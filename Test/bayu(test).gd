@@ -4,7 +4,6 @@
 
 signal question_ui_on
 signal question_ui_off
-
 var toggle_quest_ui = false
 
 
@@ -12,6 +11,7 @@ var toggle_quest_ui = false
 func interaction():
 #	print("Kamu berhasil")
 	if Input.is_action_just_pressed("interact"):
+		not_move = true
 		if toggle_quest_ui == false :
 			toggle_quest_ui = true
 			emit_signal("question_ui_on")
@@ -20,9 +20,14 @@ func interaction():
 			emit_signal("question_ui_off")
 
 func _on_interact_area_body_entered(body):
-	action = true
-
+	interact = true
+	pass
 
 func _on_interact_area_body_exited(body):
-	action = false
+	interact = false
+	toggle_quest_ui = false
+
+
+func _on_Button_pressed():
+	not_move = false
 	toggle_quest_ui = false
