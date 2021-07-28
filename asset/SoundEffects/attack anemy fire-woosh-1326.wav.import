@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/attack anemy fire-woosh-1326.wav-06384eaf5b41a1c81d43f9619f05175c.sample"
+
+[deps]
+
+source_file="res://asset/SoundEffects/attack anemy fire-woosh-1326.wav"
+dest_files=[ "res://.import/attack anemy fire-woosh-1326.wav-06384eaf5b41a1c81d43f9619f05175c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

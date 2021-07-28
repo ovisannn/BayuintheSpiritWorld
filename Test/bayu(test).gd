@@ -17,8 +17,10 @@ func interaction():
 			emit_signal("question_ui_on")
 		elif toggle_quest_ui == true :
 			toggle_quest_ui = false
+			not_move = false
 			emit_signal("question_ui_off")
-
+	
+	
 func _on_interact_area_body_entered(body):
 	interact = true
 	pass
@@ -28,6 +30,4 @@ func _on_interact_area_body_exited(body):
 	toggle_quest_ui = false
 
 
-func _on_Button_pressed():
-	not_move = false
-	toggle_quest_ui = false
+

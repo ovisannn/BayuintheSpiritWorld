@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/529942__grizzlymittz__fighting-game-hit-sound.mp3-24bbeebdfc57fdd09064a7a6721dd661.mp3str"
+
+[deps]
+
+source_file="res://asset/SoundEffects/529942__grizzlymittz__fighting-game-hit-sound.mp3"
+dest_files=[ "res://.import/529942__grizzlymittz__fighting-game-hit-sound.mp3-24bbeebdfc57fdd09064a7a6721dd661.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/lompat.wav-462a7a21c181dd4d3e2f2ac3bc73f010.sample"
+
+[deps]
+
+source_file="res://asset/SoundEffects/lompat.wav"
+dest_files=[ "res://.import/lompat.wav-462a7a21c181dd4d3e2f2ac3bc73f010.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

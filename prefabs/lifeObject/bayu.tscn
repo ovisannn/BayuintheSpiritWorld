@@ -200,6 +200,11 @@ position = Vector2( 24, 30 )
 z_index = 1
 script = ExtResource( 1 )
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 0, -7 )
+scale = Vector2( 0.990748, 0.578163 )
+current = true
+
 [node name="shadow" type="Sprite" parent="."]
 texture = ExtResource( 3 )
 
@@ -221,11 +226,6 @@ offset = Vector2( -3.8147e-06, -25.9976 )
 position = Vector2( -4.57764e-05, -28.9976 )
 shape = SubResource( 1 )
 disabled = true
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 0, -7 )
-scale = Vector2( 0.990748, 0.578163 )
-current = true
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -7 )

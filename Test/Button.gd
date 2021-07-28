@@ -4,6 +4,7 @@ extends Node2D
 onready var Jawaban = get_node("../../../Puzzle 01").Answer
 onready var Kunci = ["Sriwijaya","Singosari","Majapahit"]
 onready var Anim = $Button
+onready var music = $Pressed_platform
 
 export (String) var answer 
 
@@ -25,6 +26,7 @@ func requirement():
 
 func _on_Area2D_body_entered(body):
 	Anim.play("Pressed")
+	music.play()
 	mechanic()
 
 

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/running-through-the-forest.wav-14d25ea67f7ed5aa859e7b2c5bcc181d.sample"
+
+[deps]
+
+source_file="res://asset/SoundEffects/running-through-the-forest.wav"
+dest_files=[ "res://.import/running-through-the-forest.wav-14d25ea67f7ed5aa859e7b2c5bcc181d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

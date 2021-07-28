@@ -14,5 +14,5 @@ func _on_interact_area_body_exited(body):
 	self.set_visible(false)
 
 
-func _on_Button_pressed():
-	self.set_visible(false)
+
+

@@ -1,0 +1,120 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://asset/UI Asset/FontPixel.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scene/Button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://asset/UI Asset/MinimalPixel v2.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://prefabs/Menus/PauseScreen.gd" type="Script" id=4]
+[ext_resource path="res://script/Button(menu).gd" type="Script" id=5]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 0.611765 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 7
+font_data = ExtResource( 3 )
+
+[node name="PauseScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -37.0
+margin_top = -7.0
+margin_right = 37.0
+margin_bottom = 7.0
+custom_fonts/font = SubResource( 1 )
+text = "Pause"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="Control" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -50.5
+margin_top = -46.0
+margin_right = -2.5
+margin_bottom = -28.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" parent="Panel/Menu" instance=ExtResource( 2 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -24.0
+margin_top = -10.5
+margin_right = 24.0
+margin_bottom = 7.5
+script = ExtResource( 5 )
+reference_path = "res://scene/Menu  Interface.tscn"
+
+[node name="Label" type="Label" parent="Panel/Menu"]
+margin_left = 4.57661
+margin_top = 2.84183
+margin_right = 44.5766
+margin_bottom = 16.8418
+custom_fonts/font = ExtResource( 1 )
+text = "Menu"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="Control" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 1.13318
+margin_top = -46.0
+margin_right = 49.1332
+margin_bottom = -28.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Button" parent="Panel/Exit" instance=ExtResource( 2 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -24.0
+margin_top = -10.5
+margin_right = 24.0
+margin_bottom = 7.5
+
+[node name="Label" type="Label" parent="Panel/Exit"]
+margin_left = 4.57661
+margin_top = 2.84183
+margin_right = 44.5766
+margin_bottom = 16.8418
+custom_fonts/font = ExtResource( 1 )
+text = "Exit"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

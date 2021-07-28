@@ -14,6 +14,10 @@ config/name="Gemastik"
 run/main_scene="res://scene/Menu  Interface.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+MusicController="*res://prefabs/Menus/MusicController.tscn"
+
 [display]
 
 window/size/width=249
