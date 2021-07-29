@@ -172,7 +172,7 @@ scale = Vector2( 0.731771, 1.07152 )
 shape = SubResource( 2 )
 
 [node name="bayu" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 223.296, 27.7954 )
+position = Vector2( -264, -20 )
 script = ExtResource( 12 )
 
 [node name="Screen" parent="YSort/bayu" instance=ExtResource( 8 )]
@@ -253,12 +253,27 @@ shape = SubResource( 5 )
 position = Vector2( 241, -101 )
 z_index = 1
 
+[node name="tuyul5" parent="YSort" instance=ExtResource( 21 )]
+position = Vector2( 157, 73 )
+
+[node name="tuyul6" parent="YSort" instance=ExtResource( 21 )]
+position = Vector2( 290, 183 )
+
+[node name="tuyul7" parent="YSort" instance=ExtResource( 21 )]
+position = Vector2( 505, 185 )
+
+[node name="tuyul3" parent="YSort" instance=ExtResource( 21 )]
+position = Vector2( -67, 78 )
+
 [node name="tuyul" parent="YSort" instance=ExtResource( 21 )]
-position = Vector2( -127, -18 )
+position = Vector2( 97, -74 )
 z_index = 1
 
+[node name="tuyul4" parent="YSort" instance=ExtResource( 21 )]
+position = Vector2( 333, -73 )
+
 [node name="tuyul2" parent="YSort" instance=ExtResource( 21 )]
-position = Vector2( 43.6512, 166.922 )
+position = Vector2( 89, 199 )
 z_index = 1
 
 [node name="dungeon structure" type="Node2D" parent="."]
@@ -301,7 +316,7 @@ script = ExtResource( 24 )
 position = Vector2( 232, 151 )
 
 [node name="spikeFloor2" parent="timeSpike" instance=ExtResource( 19 )]
-position = Vector2( 248, 151 )
+position = Vector2( 472, 155 )
 
 [node name="rintanganKeLevel2" type="Node2D" parent="."]
 script = ExtResource( 27 )
@@ -330,7 +345,7 @@ margin_top = -177.703
 margin_right = 780.0
 margin_bottom = 298.297
 mouse_filter = 2
-color = Color( 0.0431373, 0.0431373, 0.0431373, 0.411765 )
+color = Color( 0, 0.0352941, 0.0980392, 0.427451 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -340,8 +355,8 @@ position = Vector2( 656, 128 )
 
 [connection signal="body_entered" from="YSort/tugu/StaticBody2D/StoneMonument(quiz)/interact_area" to="YSort/bayu" method="_on_interact_area_body_entered"]
 [connection signal="body_entered" from="YSort/tugu/StaticBody2D/StoneMonument(quiz)/interact_area" to="YSort/tugu/StaticBody2D/StoneMonument(quiz)/interact label" method="_on_interact_area_body_entered"]
-[connection signal="body_exited" from="YSort/tugu/StaticBody2D/StoneMonument(quiz)/interact_area" to="YSort/bayu" method="_on_interact_area_body_exited"]
 [connection signal="body_exited" from="YSort/tugu/StaticBody2D/StoneMonument(quiz)/interact_area" to="YSort/bayu/Screen" method="_on_interact_area_body_exited"]
+[connection signal="body_exited" from="YSort/tugu/StaticBody2D/StoneMonument(quiz)/interact_area" to="YSort/bayu" method="_on_interact_area_body_exited"]
 [connection signal="body_exited" from="YSort/tugu/StaticBody2D/StoneMonument(quiz)/interact_area" to="YSort/tugu/StaticBody2D/StoneMonument(quiz)/interact label" method="_on_interact_area_body_exited"]
 [connection signal="question_ui_off" from="YSort/bayu" to="YSort/bayu/Screen" method="_on_bayu_question_ui_off"]
 [connection signal="question_ui_on" from="YSort/bayu" to="YSort/bayu/Screen" method="_on_bayu_question_ui_on"]

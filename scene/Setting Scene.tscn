@@ -392,12 +392,13 @@ __meta__ = {
 }
 
 [node name="Nama" type="Label" parent="KAnan/VBoxContainer/ColorRect3"]
-margin_left = 21.0215
-margin_top = 3.33711
-margin_right = 61.0215
-margin_bottom = 17.3371
+margin_left = 21.0
+margin_top = 4.0
+margin_right = 61.0
+margin_bottom = 18.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Pause"
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -7,4 +7,3 @@
 script = ExtResource( 2 )
 
 [node name="Victory Screen" parent="." instance=ExtResource( 1 )]
-visible = false

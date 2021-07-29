@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://script/bayu.gd" type="Script" id=1]
 [ext_resource path="res://asset/character/bayu/bayu.png" type="Texture" id=2]
 [ext_resource path="res://asset/character/shadow.png" type="Texture" id=3]
 [ext_resource path="res://asset/weapon/keris.png" type="Texture" id=4]
-[ext_resource path="res://asset/light_shadow_light.png" type="Texture" id=5]
+[ext_resource path="res://asset/light.png" type="Texture" id=5]
+[ext_resource path="res://asset/combat sound/damage_bayu.wav" type="AudioStream" id=6]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 7.99999
@@ -273,7 +274,7 @@ position = Vector2( -0.500012, -7.5 )
 scale = Vector2( 0.697222, 0.507407 )
 texture = ExtResource( 5 )
 texture_scale = 0.45
-color = Color( 0.976471, 0.847059, 0.745098, 1 )
+color = Color( 0.466667, 0.203922, 0, 1 )
 energy = 1.15
 shadow_enabled = true
 shadow_color = Color( 0, 0, 0, 1 )
@@ -285,6 +286,9 @@ amount = 16
 lifetime = 0.5
 one_shot = true
 process_material = SubResource( 12 )
+
+[node name="gotHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
 
 [connection signal="animation_finished" from="weapAnimation" to="." method="_on_weapAnimation_animation_finished"]
 [connection signal="animation_started" from="weapAnimation" to="." method="_on_weapAnimation_animation_started"]

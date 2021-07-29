@@ -71,6 +71,21 @@ position = Vector2( -53, 69 )
 position = Vector2( 48.511, 80.1133 )
 z_index = 1
 
+[node name="lighting" type="CanvasLayer" parent="."]
+
+[node name="stageColor" type="ColorRect" parent="lighting"]
+margin_left = -92.0
+margin_top = -177.703
+margin_right = 780.0
+margin_bottom = 298.297
+mouse_filter = 2
+color = Color( 0, 0.0352941, 0.0980392, 0.427451 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Node2D" type="Node2D" parent="."]
+
 [connection signal="mati" from="YSort/bayu" to="EndScreen/LoseScreen" method="_on_bayu_mati"]
 
 [editable path="PauseLayer"]

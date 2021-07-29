@@ -19,6 +19,7 @@ onready var ani = $bayuAnimation
 onready var weapAni = $weapAnimation
 onready var weapCol = $weapon/Sprite/keris/CollisionShape2D
 onready var bld = $blood
+onready var gotHit = $gotHit
 
 signal mati
 
@@ -131,6 +132,7 @@ func _on_weapAnimation_animation_started(anim_name):
 func _on_hitBox_area_shape_entered(area_id, area, area_shape, local_shape):
 	if area.is_in_group('enemy'):
 		health-=1
+		gotHit.play()
 		bld.emitting = true
 		if right == true:
 			knockback = Vector2.LEFT*200

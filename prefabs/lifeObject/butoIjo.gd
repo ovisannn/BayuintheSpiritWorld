@@ -11,6 +11,9 @@ onready var shootTimer = $shootTimer
 onready var rotater = $rotater
 const projectile = preload("res://prefabs/lifeObject/projectile.tscn")
 onready var bodycrush = $bodyCrush/CollisionShape2D
+onready var vict = $"victoryScreen/Victory Screen"
+onready var getHit = $gothit
+onready var butoCry = $butoSound
 
 var playerOnArea = false
 var doing = 'chasing'
@@ -24,6 +27,9 @@ const spawnPointCount = 4
 const radius = 25
 
 
+func die():
+	pass
+	
 func doingFunction():
 	if playerOnArea == true:
 		doing = 'attack'
@@ -86,9 +92,14 @@ func _shootPatern():
 	shootTimer.start()
 #=======================================================================	
 func _ready():
+	butoCry.play()
 	_shootPatern()
 	
 func _process(delta):
+	if health <=0:
+		vict.visible = true
+		die()
+	
 	var newRotation = rotater.rotation_degrees * rotateSpeed * delta
 	rotater.rotation_degrees = fmod(newRotation, 360)
 	knocked(delta)
@@ -128,8 +139,10 @@ func _on_shootTimer_timeout():
 
 
 func _on_hurtBox_area_shape_entered(area_id, area, area_shape, local_shape):
+	print(health)
 	if area.name == 'keris':
 		health -= 50
+		getHit.play()
 		bld.emitting = true
 		if enemyArah == 'kanan':
 			knockback = Vector2.LEFT*70
