@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://script/bayu.gd" type="Script" id=1]
 [ext_resource path="res://asset/character/bayu/bayu.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 7.99999
+height = 6.55031
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 3.08907
@@ -193,6 +194,16 @@ tracks/0/keys = {
 radius = 7.0
 height = 6.0
 
+[sub_resource type="ParticlesMaterial" id=12]
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 63.62
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 30.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color = Color( 1, 0, 0, 1 )
+
 [node name="bayu" type="KinematicBody2D" groups=[
 "player",
 ]]
@@ -213,7 +224,6 @@ position = Vector2( 0, -2 )
 rotation = -0.523598
 
 [node name="Sprite" type="Sprite" parent="weapon"]
-visible = false
 position = Vector2( 0.0659304, -1.11663 )
 rotation = -3.33183
 scale = Vector2( 0.8, 0.8 )
@@ -266,6 +276,14 @@ color = Color( 0.976471, 0.847059, 0.745098, 1 )
 energy = 1.15
 shadow_enabled = true
 shadow_color = Color( 0, 0, 0, 1 )
+
+[node name="blood" type="Particles2D" parent="."]
+position = Vector2( 1, -4 )
+emitting = false
+amount = 16
+lifetime = 0.5
+one_shot = true
+process_material = SubResource( 12 )
 
 [connection signal="animation_finished" from="weapAnimation" to="." method="_on_weapAnimation_animation_finished"]
 [connection signal="animation_started" from="weapAnimation" to="." method="_on_weapAnimation_animation_started"]

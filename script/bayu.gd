@@ -4,17 +4,20 @@ export var speed = 70
 export var friction = 0.13
 export var acceleration = 0.1
 export var attack = 0
-export var health = 0
+export var health = 3
 
 var right = true
 var interact = false
 var atk = false
 signal paused_state
 var not_move = false
+var knockback = Vector2.ZERO
+var alive = true
 
 onready var ani = $bayuAnimation
 onready var weapAni = $weapAnimation
 onready var weapCol = $weapon/Sprite/keris/CollisionShape2D
+onready var bld = $blood
 
 var velocity = Vector2()
 
@@ -31,6 +34,11 @@ func get_input():
 			input.y -= 1
 
 	return input
+
+
+func knocked(a):
+	knockback = knockback.move_toward(Vector2.ZERO, 200 * a)
+	knockback = move_and_slide(knockback)
 
 
 func attack(get_dir):
@@ -69,28 +77,41 @@ func animation(get_dir):
 func interaction():
 	pass
    
+func hidup():
+	if health <= 0:
+		return false
+	if health > 0 :
+		return true
 
-func _physics_process(_delta):
 
-	var direction = get_input()
-	if not_move == false :
-		animation(direction)
-		attack(direction)
+func _physics_process(delta):
+	alive = hidup()
 	
-	
-		if direction.length() > 0:
-			velocity = lerp(velocity, direction.normalized() * speed, acceleration)
-		else:
-			velocity = lerp(velocity, Vector2.ZERO, friction)
-		velocity = move_and_slide(velocity)
-			
-	
-	if interact == true : #TEST PUZZLE
-		interaction()   #TESTPUZZLE
+	if alive == true:
+		knocked(delta)
+		var direction = get_input()
+		if not_move == false :
+			animation(direction)
+			attack(direction)
 		
-	
-	if Input.is_action_just_pressed("pause"):
-		emit_signal("paused_state")
+		
+			if direction.length() > 0:
+				velocity = lerp(velocity, direction.normalized() * speed, acceleration)
+			else:
+				velocity = lerp(velocity, Vector2.ZERO, friction)
+			velocity = move_and_slide(velocity)
+				
+		
+		if interact == true : #TEST PUZZLE
+			interaction()   #TESTPUZZLE
+			
+		
+		if Input.is_action_just_pressed("pause"):
+			emit_signal("paused_state")
+		
+	if alive == false:
+		#death code
+		queue_free()
 
 
 func _on_weapAnimation_animation_finished(anim_name):
@@ -105,5 +126,9 @@ func _on_weapAnimation_animation_started(anim_name):
 
 func _on_hitBox_area_shape_entered(area_id, area, area_shape, local_shape):
 	if area.is_in_group('enemy'):
-		#knockback
-		pass
+		health-=1
+		bld.emitting = true
+		if right == true:
+			knockback = Vector2.LEFT*200
+		if right == false:
+			knockback = Vector2.RIGHT*200
