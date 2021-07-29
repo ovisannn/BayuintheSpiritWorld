@@ -20,6 +20,8 @@ onready var weapAni = $weapAnimation
 onready var weapCol = $weapon/Sprite/keris/CollisionShape2D
 onready var bld = $blood
 
+signal mati
+
 var velocity = Vector2()
 
 func get_input():
@@ -112,8 +114,8 @@ func _physics_process(delta):
 			emit_signal("paused_state")
 		
 	if alive == false:
-		#death code
-		queue_free()
+		emit_signal("mati")
+		get_tree().paused
 
 
 func _on_weapAnimation_animation_finished(anim_name):
@@ -138,3 +140,7 @@ func _on_hitBox_area_shape_entered(area_id, area, area_shape, local_shape):
 			knockback = Vector2.DOWN*200
 		if asd[1] == 1:
 			knockback = Vector2.UP*200
+
+
+func _on_bayu_mati():
+	pass # Replace with function body.

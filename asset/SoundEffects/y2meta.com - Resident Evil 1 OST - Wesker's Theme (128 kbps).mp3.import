@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/y2meta.com - Resident Evil 1 OST - Wesker's Theme (128 kbps).mp3-a4c0d5d8540f1af726e7ea4127a3f847.mp3str"
+
+[deps]
+
+source_file="res://asset/SoundEffects/y2meta.com - Resident Evil 1 OST - Wesker's Theme (128 kbps).mp3"
+dest_files=[ "res://.import/y2meta.com - Resident Evil 1 OST - Wesker's Theme (128 kbps).mp3-a4c0d5d8540f1af726e7ea4127a3f847.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

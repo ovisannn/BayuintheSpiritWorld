@@ -6,10 +6,10 @@
 [ext_resource path="res://prefabs/Menus/PauseScreen.gd" type="Script" id=4]
 [ext_resource path="res://script/Button(menu).gd" type="Script" id=5]
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 0.611765 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 7
 font_data = ExtResource( 3 )
 
@@ -24,7 +24,7 @@ __meta__ = {
 [node name="Panel" type="Panel" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/panel = SubResource( 2 )
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -38,7 +38,7 @@ margin_left = -37.0
 margin_top = -7.0
 margin_right = 37.0
 margin_bottom = 7.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Pause"
 align = 1
 valign = 1

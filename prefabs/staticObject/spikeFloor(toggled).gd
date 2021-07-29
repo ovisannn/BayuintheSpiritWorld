@@ -1,26 +1,28 @@
 extends Node2D
 
+
 onready var ani = $AnimatedSprite
 onready var coll = $Area2D/CollisionShape2D
-onready var timer = $Timer
+
 
 var spikeActive 
-
-func activate():
-	spikeActive = true
-	coll.disabled = false
-	ani.play('spikeOnAni')
-
-func deactivate():
-	spikeActive = false
-	coll.disabled = true
-	ani.play('SpikeOffAni')
 
 func _ready():
 	spikeActive = false
 
+
+func activate():
+	coll.disabled = false
+	ani.play('spikeOnAni')
+
+func deactivate():
+	coll.disabled = true
+	ani.play('SpikeOffAni')
+
+
+
 func _process(_delta):
-	spikeActive = false
+	
 	if spikeActive == true:
 		deactivate()
 	if spikeActive == false:
