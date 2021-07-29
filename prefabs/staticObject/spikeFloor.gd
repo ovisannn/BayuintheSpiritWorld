@@ -2,6 +2,7 @@ extends Node2D
 
 onready var ani = $AnimatedSprite
 onready var coll = $Area2D/CollisionShape2D
+onready var timer = $Timer
 
 export var spikeActive = true
 
@@ -11,15 +12,19 @@ func activate():
 	ani.play('spikeOnAni')
 
 func deactivate():
-	spikeActive = true
-	coll.disabled = false
+	spikeActive = false
+	coll.disabled = true
 	ani.play('SpikeOffAni')
 
+func _ready():
+	pass
+
 func _process(_delta):
+	spikeActive = false
+	if spikeActive == true:
+		deactivate()
 	if spikeActive == false:
 		activate()
-	elif spikeActive == true:
-		deactivate()
 
 
 func _on_AnimatedSprite_animation_finished():

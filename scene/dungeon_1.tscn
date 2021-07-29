@@ -103,7 +103,7 @@ position = Vector2( 81, -52 )
 z_index = 1
 
 [node name="bayu" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( -215.038, -35.2405 )
+position = Vector2( 25, 89 )
 z_index = 2
 script = ExtResource( 12 )
 
@@ -238,8 +238,6 @@ tile_data = PoolIntArray( -524267, 10, 0, -524266, 10, 0, -524265, 10, 0, -52426
 [node name="timeSpike" type="Node2D" parent="."]
 script = ExtResource( 24 )
 
-[node name="Timer" type="Timer" parent="timeSpike"]
-
 [node name="spikeFloor" parent="timeSpike" instance=ExtResource( 19 )]
 position = Vector2( 232, 151 )
 
@@ -263,10 +261,10 @@ position = Vector2( 664, 184 )
 [node name="lighting" type="CanvasLayer" parent="."]
 
 [node name="stageColor" type="ColorRect" parent="lighting"]
-margin_left = -93.9547
-margin_top = -167.805
-margin_right = 778.045
-margin_bottom = 288.195
+margin_left = -94.0
+margin_top = -168.0
+margin_right = 778.0
+margin_bottom = 288.0
 mouse_filter = 2
 color = Color( 0.0431373, 0.0431373, 0.0431373, 0.411765 )
 __meta__ = {
@@ -278,11 +276,11 @@ position = Vector2( 656, 128 )
 
 [connection signal="question_ui_off" from="YSort/bayu" to="YSort/bayu/Screen" method="_on_bayu_question_ui_off"]
 [connection signal="question_ui_on" from="YSort/bayu" to="YSort/bayu/Screen" method="_on_bayu_question_ui_on"]
-[connection signal="body_entered" from="YSort/Puzzle 01/StoneMonument(quiz)/interact_area" to="YSort/Puzzle 01/StoneMonument(quiz)/interact label" method="_on_interact_area_body_entered"]
 [connection signal="body_entered" from="YSort/Puzzle 01/StoneMonument(quiz)/interact_area" to="YSort/bayu" method="_on_interact_area_body_entered"]
-[connection signal="body_exited" from="YSort/Puzzle 01/StoneMonument(quiz)/interact_area" to="YSort/bayu/Screen" method="_on_interact_area_body_exited"]
-[connection signal="body_exited" from="YSort/Puzzle 01/StoneMonument(quiz)/interact_area" to="YSort/Puzzle 01/StoneMonument(quiz)/interact label" method="_on_interact_area_body_exited"]
+[connection signal="body_entered" from="YSort/Puzzle 01/StoneMonument(quiz)/interact_area" to="YSort/Puzzle 01/StoneMonument(quiz)/interact label" method="_on_interact_area_body_entered"]
 [connection signal="body_exited" from="YSort/Puzzle 01/StoneMonument(quiz)/interact_area" to="YSort/bayu" method="_on_interact_area_body_exited"]
+[connection signal="body_exited" from="YSort/Puzzle 01/StoneMonument(quiz)/interact_area" to="YSort/Puzzle 01/StoneMonument(quiz)/interact label" method="_on_interact_area_body_exited"]
+[connection signal="body_exited" from="YSort/Puzzle 01/StoneMonument(quiz)/interact_area" to="YSort/bayu/Screen" method="_on_interact_area_body_exited"]
 [connection signal="door_open" from="YSort/Puzzle 01/Majapahit/Platform(A)" to="YSort/door" method="_on_PlatformA_door_open"]
 
 [editable path="YSort/bayu/Screen"]

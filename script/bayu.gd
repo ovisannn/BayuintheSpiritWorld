@@ -13,6 +13,7 @@ signal paused_state
 var not_move = false
 var knockback = Vector2.ZERO
 var alive = true
+var asd = Vector2.ZERO
 
 onready var ani = $bayuAnimation
 onready var weapAni = $weapAnimation
@@ -90,6 +91,7 @@ func _physics_process(delta):
 	if alive == true:
 		knocked(delta)
 		var direction = get_input()
+		asd = direction
 		if not_move == false :
 			animation(direction)
 			attack(direction)
@@ -132,3 +134,7 @@ func _on_hitBox_area_shape_entered(area_id, area, area_shape, local_shape):
 			knockback = Vector2.LEFT*200
 		if right == false:
 			knockback = Vector2.RIGHT*200
+		if asd[1] == -1:
+			knockback = Vector2.DOWN*200
+		if asd[1] == 1:
+			knockback = Vector2.UP*200
